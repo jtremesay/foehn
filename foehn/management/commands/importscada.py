@@ -1,10 +1,10 @@
 import math
 
 import pandas as pd
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import BaseCommand
 from django.db import transaction
 
-from ...models import ScadaFile, ScadaRecord, Turbine
+from ...models import ScadaFile, ScadaRecord
 
 
 def import_scada_files():

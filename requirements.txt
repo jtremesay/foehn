@@ -1,5 +1,6 @@
 dj-database-url
 Django
 gunicorn[gevent]
+pandas
 psycopg2-binary
 whitenoise[brotli]
