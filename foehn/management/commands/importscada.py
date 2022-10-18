@@ -71,7 +71,7 @@ def import_scada_file(scada_file: ScadaFile):
         records.append(scada_record)
 
     with transaction.atomic():
-        print("deleting old rectords")
+        print("deleting old records")
         ScadaRecord.objects.filter(scada_file=scada_file).delete()
         print("importing", len(records), "records")
         ScadaRecord.objects.bulk_create(records)
