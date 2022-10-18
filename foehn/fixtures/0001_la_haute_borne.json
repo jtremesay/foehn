@@ -1,0 +1,248 @@
+[
+    {
+        "model": "foehn.manufacturer",
+        "pk": "112d62f4-b4b0-414d-b292-31dca69810ee",
+        "fields": {
+            "name": "Senvion"
+        }
+    },
+    {
+        "model": "foehn.turbinemodel",
+        "pk": "2685fff6-c780-4e2e-8235-977748d1e31d",
+        "fields": {
+            "name": "MM82",
+            "manufacturer": "112d62f4-b4b0-414d-b292-31dca69810ee",
+            "reference_power_curve": "5dba7027-a7d4-4d55-b3d6-3b96158ae7fc"
+        }
+    },
+    {
+        "model": "foehn.organization",
+        "pk": "a2b0df16-7cc8-4b20-88db-26fa8b827f0e",
+        "fields": {
+            "name": "Engie"
+        }
+    },
+    {
+        "model": "foehn.site",
+        "pk": "9899a612-c309-49bc-8cc0-1ee60e5c50f3",
+        "fields": {
+            "name": "La Haute Borne",
+            "organization": "a2b0df16-7cc8-4b20-88db-26fa8b827f0e"
+        }
+    },
+    {
+        "model": "foehn.turbine",
+        "pk": "14f19742-df18-4371-bdfe-f107530b4f27",
+        "fields": {
+            "name": "R80711",
+            "site": "9899a612-c309-49bc-8cc0-1ee60e5c50f3",
+            "model": "2685fff6-c780-4e2e-8235-977748d1e31d",
+            "power_curve": "4d624acc-40d2-44ea-9dcf-fc62ac7101a8"
+        }
+    },
+    {
+        "model": "foehn.turbine",
+        "pk": "24672ee1-79af-47a5-8bce-3cdc6cd047e7",
+        "fields": {
+            "name": "R80790",
+            "site": "9899a612-c309-49bc-8cc0-1ee60e5c50f3",
+            "model": "2685fff6-c780-4e2e-8235-977748d1e31d",
+            "power_curve": "ec18e54c-2778-4711-93ce-29758f435815"
+        }
+    },
+    {
+        "model": "foehn.turbine",
+        "pk": "47bd523c-e054-4385-ae86-900d587ef4ce",
+        "fields": {
+            "name": "R80721",
+            "site": "9899a612-c309-49bc-8cc0-1ee60e5c50f3",
+            "model": "2685fff6-c780-4e2e-8235-977748d1e31d",
+            "power_curve": "0d3a3e03-0f80-44a0-87ce-6599e1b1f66a"
+        }
+    },
+    {
+        "model": "foehn.turbine",
+        "pk": "b3843045-2183-4c1d-849b-7e99933d3fad",
+        "fields": {
+            "name": "R80736",
+            "site": "9899a612-c309-49bc-8cc0-1ee60e5c50f3",
+            "model": "2685fff6-c780-4e2e-8235-977748d1e31d",
+            "power_curve": "fcbb7c86-36dd-47e2-bf99-bf71cbde4e34"
+        }
+    },
+    {
+        "model": "foehn.powercurve",
+        "pk": "0d3a3e03-0f80-44a0-87ce-6599e1b1f66a",
+        "fields": {
+            "wind_speed_0ms": 4.0950000289499995,
+            "wind_speed_1ms": 4.4264052237254905,
+            "wind_speed_2ms": 6.744523206090126,
+            "wind_speed_3ms": 21.6915467214184,
+            "wind_speed_4ms": 81.0418061309662,
+            "wind_speed_5ms": 209.15989654501143,
+            "wind_speed_6ms": 425.4047510387843,
+            "wind_speed_7ms": 694.9025638716645,
+            "wind_speed_8ms": 971.1209168226309,
+            "wind_speed_9ms": 1230.3444096480532,
+            "wind_speed_10ms": 1479.4233531649381,
+            "wind_speed_11ms": 1688.6499485003937,
+            "wind_speed_12ms": 1844.5608829059834,
+            "wind_speed_13ms": 1942.097373432835,
+            "wind_speed_14ms": 1976.5161437962965,
+            "wind_speed_15ms": 1975.4447876811594,
+            "wind_speed_16ms": 1965.7425291139239,
+            "wind_speed_17ms": 1896.4568665625,
+            "wind_speed_18ms": 1870.2133166666665,
+            "wind_speed_19ms": 2043.48,
+            "wind_speed_20ms": 51.57,
+            "wind_speed_21ms": 12.77,
+            "wind_speed_22ms": 1296.88,
+            "wind_speed_23ms": 1296.88,
+            "wind_speed_24ms": 0.0,
+            "wind_speed_25ms": 0.0
+        }
+    },
+    {
+        "model": "foehn.powercurve",
+        "pk": "4d624acc-40d2-44ea-9dcf-fc62ac7101a8",
+        "fields": {
+            "wind_speed_0ms": 1.7339999996,
+            "wind_speed_1ms": 3.9278571384500003,
+            "wind_speed_2ms": 5.857582053520792,
+            "wind_speed_3ms": 20.697805163643853,
+            "wind_speed_4ms": 79.07874990300135,
+            "wind_speed_5ms": 205.45098917571633,
+            "wind_speed_6ms": 420.6827149928665,
+            "wind_speed_7ms": 695.3104834793064,
+            "wind_speed_8ms": 975.6569267976678,
+            "wind_speed_9ms": 1237.6558638822596,
+            "wind_speed_10ms": 1478.330462383891,
+            "wind_speed_11ms": 1685.968401727777,
+            "wind_speed_12ms": 1833.1996918114748,
+            "wind_speed_13ms": 1926.1178794953425,
+            "wind_speed_14ms": 1944.7002905206105,
+            "wind_speed_15ms": 1966.3414480565375,
+            "wind_speed_16ms": 1986.5530221476508,
+            "wind_speed_17ms": 1977.322216666667,
+            "wind_speed_18ms": 1768.390685862069,
+            "wind_speed_19ms": 1829.1223933333333,
+            "wind_speed_20ms": 1525.077001,
+            "wind_speed_21ms": 0.0,
+            "wind_speed_22ms": 0.0,
+            "wind_speed_23ms": 545.07,
+            "wind_speed_24ms": 0.0,
+            "wind_speed_25ms": 0.0
+        }
+    },
+    {
+        "model": "foehn.powercurve",
+        "pk": "5dba7027-a7d4-4d55-b3d6-3b96158ae7fc",
+        "fields": {
+            "wind_speed_0ms": 0.0,
+            "wind_speed_1ms": 0.0,
+            "wind_speed_2ms": 0.0,
+            "wind_speed_3ms": 0.0,
+            "wind_speed_4ms": 66.0,
+            "wind_speed_5ms": 192.0,
+            "wind_speed_6ms": 343.0,
+            "wind_speed_7ms": 519.0,
+            "wind_speed_8ms": 711.0,
+            "wind_speed_9ms": 959.0,
+            "wind_speed_10ms": 1355.0,
+            "wind_speed_11ms": 1681.0,
+            "wind_speed_12ms": 1861.0,
+            "wind_speed_13ms": 1947.0,
+            "wind_speed_14ms": 1987.0,
+            "wind_speed_15ms": 2000.0,
+            "wind_speed_16ms": 2000.0,
+            "wind_speed_17ms": 2000.0,
+            "wind_speed_18ms": 2000.0,
+            "wind_speed_19ms": 2000.0,
+            "wind_speed_20ms": 2000.0,
+            "wind_speed_21ms": 2000.0,
+            "wind_speed_22ms": 2000.0,
+            "wind_speed_23ms": 0.0,
+            "wind_speed_24ms": 0.0,
+            "wind_speed_25ms": 0.0
+        }
+    },
+    {
+        "model": "foehn.powercurve",
+        "pk": "ec18e54c-2778-4711-93ce-29758f435815",
+        "fields": {
+            "wind_speed_0ms": 8.503636438181816,
+            "wind_speed_1ms": 4.385539564388489,
+            "wind_speed_2ms": 7.068087808025366,
+            "wind_speed_3ms": 24.35620725704517,
+            "wind_speed_4ms": 89.35028736498333,
+            "wind_speed_5ms": 228.6826259186424,
+            "wind_speed_6ms": 454.81576469582944,
+            "wind_speed_7ms": 722.706917904017,
+            "wind_speed_8ms": 985.1411512809407,
+            "wind_speed_9ms": 1225.644799168025,
+            "wind_speed_10ms": 1459.1670196841878,
+            "wind_speed_11ms": 1673.8117502133664,
+            "wind_speed_12ms": 1834.6008174586218,
+            "wind_speed_13ms": 1931.689836239782,
+            "wind_speed_14ms": 1984.491186746988,
+            "wind_speed_15ms": 1992.0096140772532,
+            "wind_speed_16ms": 1996.9144285,
+            "wind_speed_17ms": 2000.2793373333334,
+            "wind_speed_18ms": 1930.4302727027023,
+            "wind_speed_19ms": 1796.838453846154,
+            "wind_speed_20ms": 1504.7425199999998,
+            "wind_speed_21ms": 1436.69,
+            "wind_speed_22ms": 0.0,
+            "wind_speed_23ms": 0.0,
+            "wind_speed_24ms": 284.88,
+            "wind_speed_25ms": 0.0
+        }
+    },
+    {
+        "model": "foehn.powercurve",
+        "pk": "fcbb7c86-36dd-47e2-bf99-bf71cbde4e34",
+        "fields": {
+            "wind_speed_0ms": 3.5574358940871798,
+            "wind_speed_1ms": 5.12229730423892,
+            "wind_speed_2ms": 7.919458285783316,
+            "wind_speed_3ms": 23.715225789253637,
+            "wind_speed_4ms": 83.10130427529488,
+            "wind_speed_5ms": 210.04665784932376,
+            "wind_speed_6ms": 427.36158346280945,
+            "wind_speed_7ms": 703.2671077978116,
+            "wind_speed_8ms": 987.5750886366689,
+            "wind_speed_9ms": 1257.1656554388749,
+            "wind_speed_10ms": 1510.9540988577535,
+            "wind_speed_11ms": 1728.178928796091,
+            "wind_speed_12ms": 1877.1997566897926,
+            "wind_speed_13ms": 1956.4548416746863,
+            "wind_speed_14ms": 1996.1499637651827,
+            "wind_speed_15ms": 1991.319200440529,
+            "wind_speed_16ms": 2015.1647968000002,
+            "wind_speed_17ms": 1989.7555666666665,
+            "wind_speed_18ms": 1930.3408245833332,
+            "wind_speed_19ms": 1772.236,
+            "wind_speed_20ms": 1839.2683533333336,
+            "wind_speed_21ms": 2048.26,
+            "wind_speed_22ms": 0.0,
+            "wind_speed_23ms": 0.0,
+            "wind_speed_24ms": 0.0,
+            "wind_speed_25ms": 0.0
+        }
+    },
+    {
+        "model": "foehn.scadafileformat",
+        "pk": "c96e0bb7-e925-4f85-8647-f081a580fa66",
+        "fields": {
+            "name": "La Haute Borne",
+            "turbine_name_column": "Wind_turbine_name",
+            "timestamp_column": "Date_time",
+            "wind_speed_column": "Ws_avg",
+            "wind_direction_column": "Wa_avg",
+            "air_temperature_column": "Ot_avg",
+            "nacelle_direction_column": "Ya_avg",
+            "active_power_column": "P_avg",
+            "pitch_angle_column": "Ba_avg"
+        }
+    }
+]
