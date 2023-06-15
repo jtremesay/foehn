@@ -1,89 +1,73 @@
+{% extends "foehn/base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en-US">
 
-<head>
-    <meta charset="utf-8">
-    <title>Foehn</title>
-</head>
+{% block title %}{% endblock %}
 
-<body>
-    <h1>La Haute Borne</h1>
-    <div>
-        <table border="solid">
-            <thead>
-                <tr>
-                    <th>
-                        Turbine
-                    </th>
-                    <th>
-                        Turbine model
-                    </th>
-                    <th>Power curve</th>
-                    <th>Power vs Wind speed</th>
-                    <th>Wind distribution</th>
-                    <th>Wind resource</th>
-                    <th>Monthly production</th>
-                    <th>Total production</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for turbine in turbines %}
-                <tr>
-                    <td>
-                        {{ turbine.name }}
-                    </td>
-                    <td>
-                        {{ turbine.model.manufacturer.name }} {{ turbine.model.name }}
-                    </td>
-                    <td>
-                        <canvas class="graph" data-src="{% url 'foehn:graph_powercurve_data' turbine.uuid %}"
-                            width="640" height="480">
-                            Loading…
-                        </canvas>
-                    </td>
-                    <td>
-                        <canvas class="graph" data-src="{% url 'foehn:graph_powervswindspeed_data' turbine.uuid %}"
-                            width="640" height="480">
-                            Loading…
-                        </canvas>
-                    </td>
-                    <td>
-                        <canvas class="graph" data-src="{% url 'foehn:graph_winddistribution_data' turbine.uuid %}"
-                            width="640" height="480">
-                            Loading…
-                        </canvas>
-                    </td>
-                    <td>
-                        <canvas class="graph" data-src="{% url 'foehn:graph_windresource_data' turbine.uuid %}"
-                            width="640" height="480">
-                            Loading…
-                        </canvas>
-                    </td>
-                    <td>
-                        <canvas class="graph" data-src="{% url 'foehn:graph_monthlyproduction_data' turbine.uuid %}"
-                            width="640" height="480">
-                            Loading…
-                        </canvas>
-                    </td>
-                    <td>
-                        {{ turbine.total_production }}GWh
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-    <div>
-        <p>
-            Data source : <a href="https://opendata-renewables.engie.com/">Engie open data</a>
-        </p>
-        <p>
-            Copyrigth 2022 Jonathan Tremesaygues. Source code available <a href="https://github.com/killruana/foehn">here</a>
-        </p>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="{% static 'foehn/js/main.js' %}"></script>
-</body>
+{% block content %}
+<h1>La Haute Borne</h1>
+<div>
+    <table border="solid">
+        <thead>
+            <tr>
+                <th>
+                    Turbine
+                </th>
+                <th>
+                    Turbine model
+                </th>
+                <th>Power curve</th>
+                <th>Power vs Wind speed</th>
+                <th>Wind distribution</th>
+                <th>Wind resource</th>
+                <th>Monthly production</th>
+                <th>Total production</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for turbine in turbines %}
+            <tr>
+                <td>
+                    {{ turbine.name }}
+                </td>
+                <td>
+                    {{ turbine.model.manufacturer.name }} {{ turbine.model.name }}
+                </td>
+                <td>
+                    <canvas class="graph" data-src="{% url 'foehn:graph_powercurve_data' turbine.uuid %}" width="640" height="480">
+                        Loading…
+                    </canvas>
+                </td>
+                <td>
+                    <canvas class="graph" data-src="{% url 'foehn:graph_powervswindspeed_data' turbine.uuid %}" width="640" height="480">
+                        Loading…
+                    </canvas>
+                </td>
+                <td>
+                    <canvas class="graph" data-src="{% url 'foehn:graph_winddistribution_data' turbine.uuid %}" width="640" height="480">
+                        Loading…
+                    </canvas>
+                </td>
+                <td>
+                    <canvas class="graph" data-src="{% url 'foehn:graph_windresource_data' turbine.uuid %}" width="640" height="480">
+                        Loading…
+                    </canvas>
+                </td>
+                <td>
+                    <canvas class="graph" data-src="{% url 'foehn:graph_monthlyproduction_data' turbine.uuid %}" width="640" height="480">
+                        Loading…
+                    </canvas>
+                </td>
+                <td>
+                    {{ turbine.total_production }}GWh
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
 
-</html>
+{% block js_includes %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{% static 'foehn/js/main.js' %}"></script>
+{% endblock %}
