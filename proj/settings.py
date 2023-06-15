@@ -129,6 +129,11 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_DIRS = [
+    # ...
+    ("front", BASE_DIR / "out" / "front"),
+]
+
 
 # http://whitenoise.evans.io/en/stable/django.html
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"

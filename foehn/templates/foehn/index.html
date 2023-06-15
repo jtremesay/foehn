@@ -27,7 +27,7 @@
             {% for turbine in turbines %}
             <tr>
                 <td>
-                    {{ turbine.name }}
+                    <a href="{% url 'foehn:pce' turbine.pk %}">{{ turbine.name }}</a>
                 </td>
                 <td>
                     {{ turbine.model.manufacturer.name }} {{ turbine.model.name }}
@@ -68,6 +68,5 @@
 {% endblock %}
 
 {% block js_includes %}
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="{% static 'foehn/js/main.js' %}"></script>
+<script src="{% static 'front/index.js' %}" module></script>
 {% endblock %}

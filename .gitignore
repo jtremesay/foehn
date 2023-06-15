@@ -1,4 +1,6 @@
 /venv/
 /mediafiles/
+/node_modules/
+/out/
 /staticfiles/
 __pycache__/
