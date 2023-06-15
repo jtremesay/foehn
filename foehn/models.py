@@ -8,34 +8,9 @@ from django.db.models import Sum
 class PowerCurve(models.Model):
     MIN_SPEED = 0
     MAX_SPEED = 25
+    RANGE_SPEED = range(0, 25 + 1)
 
     uuid = models.UUIDField(default=UUID4, primary_key=True)
-    wind_speed_0ms = models.FloatField(default=0)
-    wind_speed_1ms = models.FloatField(default=0)
-    wind_speed_2ms = models.FloatField(default=0)
-    wind_speed_3ms = models.FloatField(default=0)
-    wind_speed_4ms = models.FloatField(default=0)
-    wind_speed_5ms = models.FloatField(default=0)
-    wind_speed_6ms = models.FloatField(default=0)
-    wind_speed_7ms = models.FloatField(default=0)
-    wind_speed_8ms = models.FloatField(default=0)
-    wind_speed_9ms = models.FloatField(default=0)
-    wind_speed_10ms = models.FloatField(default=0)
-    wind_speed_11ms = models.FloatField(default=0)
-    wind_speed_12ms = models.FloatField(default=0)
-    wind_speed_13ms = models.FloatField(default=0)
-    wind_speed_14ms = models.FloatField(default=0)
-    wind_speed_15ms = models.FloatField(default=0)
-    wind_speed_16ms = models.FloatField(default=0)
-    wind_speed_17ms = models.FloatField(default=0)
-    wind_speed_18ms = models.FloatField(default=0)
-    wind_speed_19ms = models.FloatField(default=0)
-    wind_speed_20ms = models.FloatField(default=0)
-    wind_speed_21ms = models.FloatField(default=0)
-    wind_speed_22ms = models.FloatField(default=0)
-    wind_speed_23ms = models.FloatField(default=0)
-    wind_speed_24ms = models.FloatField(default=0)
-    wind_speed_25ms = models.FloatField(default=0)
 
     def __getitem__(self, wind_speed: int) -> float:
         return getattr(self, f"wind_speed_{wind_speed}ms")
@@ -52,6 +27,9 @@ class PowerCurve(models.Model):
         for wind_speed, power in enumerate(powers):
             self[wind_speed] = power
 
+# Programmatically create the wind speed bucket attributes
+for speed in PowerCurve.RANGE_SPEED:
+    PowerCurve.add_to_class(f"wind_speed_{speed}ms", models.FloatField(default=0))
 
 ##############################################################################
 # Knowledges
