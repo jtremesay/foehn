@@ -14,8 +14,8 @@
 # this program. If not, see <https://www.gnu.org/licenses/>.
 version: "3.8"
 services:
-  postgres:
-    image: "postgres:16"
+  database:
+    image: "timescale/timescaledb:latest-pg16"
     environment:
       POSTGRES_DB: "foehn"
       POSTGRES_USER: "foehn"
@@ -23,12 +23,12 @@ services:
     networks:
       - "database"
     volumes:
-      - "postgres_data16:/var/lib/postgresql/data"
+      - "database_data:/var/lib/postgresql/data"
 
   foehn:
     image: "killruana/foehn:main"
     environment:
-      DATABASE_URL: "postgres://foehn:foehn@postgres/foehn"
+      DATABASE_URL: "timescale://foehn:foehn@database/foehn"
       DJANGO_SECRET_KEY_FILE: "/run/secrets/foehn_secret_key"
       DJANGO_ALLOWED_HOSTS: "foehn.jtremesay.org,foehn.slaanesh.org"
     ports:
@@ -58,4 +58,4 @@ secrets:
     external: true
 
 volumes:
-  postgres_data16:
+  database_data:
