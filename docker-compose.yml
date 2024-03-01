@@ -1,0 +1,61 @@
+# JSSG - Jtremesay's Static Site Generator
+# Copyright (C) 2024 Jonathan Tremesaygues
+#
+# This program is free software: you can redistribute it and/or modify it under
+# the terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later
+# version.
+#
+# This program is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+# FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+version: "3.8"
+services:
+  postgres:
+    image: "postgres:16"
+    environment:
+      POSTGRES_DB: "foehn"
+      POSTGRES_USER: "foehn"
+      POSTGRES_PASSWORD: "foehn"
+    networks:
+      - "database"
+    volumes:
+      - "postgres_data16:/var/lib/postgresql/data"
+
+  foehn:
+    image: "killruana/foehn:main"
+    environment:
+      DATABASE_URL: "postgres://foehn:foehn@postgres/foehn"
+      DJANGO_SECRET_KEY_FILE: "/run/secrets/foehn_secret_key"
+      DJANGO_ALLOWED_HOSTS: "foehn.jtremesay.org,foehn.slaanesh.org"
+    ports:
+      - 8002:8002
+    networks:
+      - "database"
+      - "traefik_public"
+    secrets:
+      - foehn_secret_key
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.middlewares.foehn-compress.compress=true"
+      - "traefik.http.routers.foehn.entrypoints=websecure"
+      - "traefik.http.routers.foehn.middlewares=foehn-compress"
+      - "traefik.http.routers.foehn.rule=Host(`foehn.jtremesay.org`, `foehn.slaanesh.org`)"
+      - "traefik.http.routers.foehn.service=jtremesay"
+      - "traefik.http.routers.foehn.tls.certresolver=zerossl"
+      - "traefik.http.services.foehn.loadbalancer.server.port=80"
+
+networks:
+  database:
+  traefik_public:
+    external: true
+
+secrets:
+  foehn_secret_key:
+    external: true
+
+volumes:
+  postgres_data16:

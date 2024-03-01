@@ -1,72 +1,20 @@
-{% extends "foehn/base.html" %}
-{% load static %}
+{% load vite %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block title %}{% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <title>Foehn</title>
+    {% load vite %}
+    {% vite 'foehn/css/main.scss' %}
+    {% vite 'foehn/js/main.ts' %}
+</head>
 
-{% block content %}
-<h1>La Haute Borne</h1>
-<div>
-    <table border="solid">
-        <thead>
-            <tr>
-                <th>
-                    Turbine
-                </th>
-                <th>
-                    Turbine model
-                </th>
-                <th>Power curve</th>
-                <th>Power vs Wind speed</th>
-                <th>Wind distribution</th>
-                <th>Wind resource</th>
-                <th>Monthly production</th>
-                <th>Total production</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for turbine in turbines %}
-            <tr>
-                <td>
-                    <a href="{% url 'foehn:pce' turbine.pk %}">{{ turbine.name }}</a>
-                </td>
-                <td>
-                    {{ turbine.model.manufacturer.name }} {{ turbine.model.name }}
-                </td>
-                <td>
-                    <canvas class="graph" data-src="{% url 'foehn:graph_powercurve_data' turbine.uuid %}" width="640" height="480">
-                        Loading…
-                    </canvas>
-                </td>
-                <td>
-                    <canvas class="graph" data-src="{% url 'foehn:graph_powervswindspeed_data' turbine.uuid %}" width="640" height="480">
-                        Loading…
-                    </canvas>
-                </td>
-                <td>
-                    <canvas class="graph" data-src="{% url 'foehn:graph_winddistribution_data' turbine.uuid %}" width="640" height="480">
-                        Loading…
-                    </canvas>
-                </td>
-                <td>
-                    <canvas class="graph" data-src="{% url 'foehn:graph_windresource_data' turbine.uuid %}" width="640" height="480">
-                        Loading…
-                    </canvas>
-                </td>
-                <td>
-                    <canvas class="graph" data-src="{% url 'foehn:graph_monthlyproduction_data' turbine.uuid %}" width="640" height="480">
-                        Loading…
-                    </canvas>
-                </td>
-                <td>
-                    {{ turbine.total_production }}GWh
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
-{% endblock %}
+<body>
+    <div class="container py-4 px-3 mx-auto">
+        <h1>Hello, Bootstrap and Vite!</h1>
+        <button class="btn btn-primary">Primary button</button>
+    </div>
+</body>
 
-{% block js_includes %}
-<script src="{% static 'front/index.js' %}" module></script>
-{% endblock %}
+</html>

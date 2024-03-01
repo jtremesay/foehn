@@ -1,6 +1,5 @@
-/venv/
-/mediafiles/
+/.direnv/
 /node_modules/
-/out/
 /staticfiles/
+/*.sqlite3
 __pycache__/
