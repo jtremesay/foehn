@@ -66,14 +66,14 @@ jobs:
           cache-from: type=registry,ref=killruana/foehn:buildcache
           cache-to: type=registry,ref=killruana/foehn:buildcache,mode=max
 
-  # deploy:
-  #   runs-on: ubuntu-latest
-  #   needs: build-prod
-  #   if: github.ref == 'refs/heads/main'
-  #   steps:
-  #     -
-  #       name: Deploy
-  #       uses: distributhor/workflow-webhook@v3
-  #       with:
-  #         webhook_url: ${{ secrets.WEBHOOK_URL }}
-  #         verify_ssl: false
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build-prod
+    if: github.ref == 'refs/heads/main'
+    steps:
+      -
+        name: Deploy
+        uses: distributhor/workflow-webhook@v3
+        with:
+          webhook_url: ${{ secrets.WEBHOOK_URL }}
+          verify_ssl: false
