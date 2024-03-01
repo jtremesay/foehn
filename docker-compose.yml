@@ -44,7 +44,7 @@ services:
       - "traefik.http.routers.foehn.entrypoints=websecure"
       - "traefik.http.routers.foehn.middlewares=foehn-compress"
       - "traefik.http.routers.foehn.rule=Host(`foehn.jtremesay.org`, `foehn.slaanesh.org`)"
-      - "traefik.http.routers.foehn.service=jtremesay"
+      - "traefik.http.routers.foehn.service=foehn"
       - "traefik.http.routers.foehn.tls.certresolver=zerossl"
       - "traefik.http.services.foehn.loadbalancer.server.port=80"
 
