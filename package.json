@@ -12,7 +12,7 @@
     "glob": "^10.3.10",
     "sass": "^1.71.1",
     "typescript": "^5.3.3",
-    "vite": "^5.1.1"
+    "vite": "^5.1.5"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
