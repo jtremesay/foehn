@@ -11,7 +11,7 @@
     "django-vite-plugin": "^4.0.0",
     "glob": "^10.3.10",
     "sass": "^1.71.1",
-    "typescript": "^5.3.3",
+    "typescript": "^5.4.5",
     "vite": "^5.1.1"
   },
   "dependencies": {
