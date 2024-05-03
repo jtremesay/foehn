@@ -43,9 +43,9 @@ services:
       - "traefik.http.middlewares.foehn-compress.compress=true"
       - "traefik.http.routers.foehn.entrypoints=websecure"
       - "traefik.http.routers.foehn.middlewares=foehn-compress"
-      - "traefik.http.routers.foehn.rule=Host(`foehn.jtremesay.org`, `foehn.slaanesh.org`)"
+      - "traefik.http.routers.foehn.rule=Host(`foehn.jtremesay.org`) || Host(`foehn.slaanesh.org`)"
       - "traefik.http.routers.foehn.service=foehn"
-      - "traefik.http.routers.foehn.tls.certresolver=zerossl"
+      - "traefik.http.routers.foehn.tls.certresolver=leresolve"
       - "traefik.http.services.foehn.loadbalancer.server.port=8002"
 
 networks:
