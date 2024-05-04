@@ -45,7 +45,7 @@ services:
       - "traefik.http.routers.foehn.middlewares=foehn-compress"
       - "traefik.http.routers.foehn.rule=Host(`foehn.jtremesay.org`) || Host(`foehn.slaanesh.org`)"
       - "traefik.http.routers.foehn.service=foehn"
-      - "traefik.http.routers.foehn.tls.certresolver=leresolve"
+      - "traefik.http.routers.foehn.tls.certresolver=leresolver"
       - "traefik.http.services.foehn.loadbalancer.server.port=8002"
 
 networks:
